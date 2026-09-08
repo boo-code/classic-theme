@@ -81,6 +81,16 @@
       </div>
     {/foreach}
 
+    {block name='cart_detailed_product_line_availability'}
+      {if !empty($product.availability_message)}
+        <div class="product-line-info product-availability">
+          <span class="value{if $product.availability == 'in_stock' || $product.availability == 'last_remaining_items'} text-success{elseif $product.availability == 'available'} text-warning{else} text-danger{/if}">
+            {$product.availability_message}
+          </span>
+        </div>
+      {/if}
+    {/block}
+
     {if is_array($product.customizations) && $product.customizations|count}
       <br>
       {block name='cart_detailed_product_line_customization'}

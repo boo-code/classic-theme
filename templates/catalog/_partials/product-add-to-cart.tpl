@@ -68,7 +68,11 @@
           {if $product.availability == 'in_stock'}
             {assign 'availability_icon' 'E5CA'}
             {assign 'availability_color' 'success'}
-          {elseif $product.availability == 'available' || $product.availability == 'last_remaining_items'}
+          {elseif $product.availability == 'last_remaining_items'}
+            {** In stock, only not much of it: green like in_stock, with the alert icon kept *}
+            {assign 'availability_icon' 'E002'}
+            {assign 'availability_color' 'success'}
+          {elseif $product.availability == 'available'}
             {assign 'availability_icon' 'E002'}
             {assign 'availability_color' 'warning'}
           {else}
