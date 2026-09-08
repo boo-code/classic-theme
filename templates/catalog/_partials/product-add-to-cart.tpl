@@ -89,6 +89,23 @@
             </div>
           </div>
         {/if}
+
+        {block name='product_delivery_times'}
+          {if $product.is_virtual == 0}
+            {if $product.additional_delivery_times == 1}
+              {if $product.delivery_information}
+                <span class="delivery-information">{$product.delivery_information}</span>
+              {/if}
+            {elseif $product.additional_delivery_times == 2}
+              {if $product.quantity >= $product.quantity_wanted}
+                <span class="delivery-information">{$product.delivery_in_stock}</span>
+              {* Out of stock message should not be displayed if customer can't order the product. *}
+              {elseif $product.add_to_cart_url}
+                <span class="delivery-information">{$product.delivery_out_stock}</span>
+              {/if}
+            {/if}
+          {/if}
+        {/block}
       </div>
     {/block}
 

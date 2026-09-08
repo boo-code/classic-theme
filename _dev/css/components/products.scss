@@ -214,16 +214,20 @@
     font-size: 0.8125rem;
     color: $gray;
     word-wrap: break-word;
+  }
+}
 
-    .delivery-information {
-      padding: 0 0 0 2px;
-      font-weight: 700;
+/* The delivery time now sits with the stock label rather than with the tax label, so it can no longer
+   be styled as a descendant of .tax-shipping-delivery-label. */
+.delivery-information {
+  padding: 0 0 0 2px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: $gray;
 
-      &::before {
-        padding: 0 2px 0 0;
-        content: "-";
-      }
-    }
+  &::before {
+    padding: 0 2px 0 0;
+    content: "-";
   }
 }
 
